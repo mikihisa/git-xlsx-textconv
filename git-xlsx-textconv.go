@@ -28,7 +28,9 @@ func main() {
 			cels := make([]string, len(row.Cells))
 			for i, cell := range row.Cells {
 				s,err := cell.String()
-				err = ""
+				if err != nil {
+					fmt.Printf("Error [%s]\n", err)
+				}
 				s = strings.Replace(s, "\\", "\\\\", -1)
 				s = strings.Replace(s, "\n", "\\n", -1)
 				s = strings.Replace(s, "\r", "\\r", -1)
